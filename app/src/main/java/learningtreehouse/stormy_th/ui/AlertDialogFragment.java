@@ -1,4 +1,4 @@
-package learningtreehouse.stormy_th;
+package learningtreehouse.stormy_th.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

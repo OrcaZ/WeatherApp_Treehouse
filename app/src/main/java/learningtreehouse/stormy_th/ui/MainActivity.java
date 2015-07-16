@@ -1,4 +1,4 @@
-package learningtreehouse.stormy_th;
+package learningtreehouse.stormy_th.ui;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -25,6 +25,9 @@ import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import learningtreehouse.stormy_th.R;
+import learningtreehouse.stormy_th.weather.CurrentWeather;
+import learningtreehouse.stormy_th.weather.Forecast;
 
 
 public class MainActivity extends ActionBarActivity {

@@ -1,8 +1,10 @@
-package learningtreehouse.stormy_th;
+package learningtreehouse.stormy_th.weather;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
+
+import learningtreehouse.stormy_th.R;
 
 /**
  * Created by OrcaZ on 2015/07/15.
