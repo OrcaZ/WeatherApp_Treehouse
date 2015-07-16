@@ -1,22 +1,23 @@
 package learningtreehouse.stormy_th.weather;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by OrcaZ on 2015/07/16.
  */
-public class HourlyWeather {
+public class HourlyWeather implements Parcelable {
     private Long mTime;
     private String mSummary;
     private double mTemperature;
     private String mIcon;
-    private String mTImezone;
 
-    public HourlyWeather(Long time, String summary, double temperature, String icon, String TImezone) {
+    public HourlyWeather(Long time, String summary, double temperature, String icon) {
         mTime = time;
         mSummary = summary;
         mTemperature = temperature;
         mIcon = icon;
-        mTImezone = TImezone;
-    }
+     }
 
     public Long getTime() {
         return mTime;
@@ -34,8 +35,8 @@ public class HourlyWeather {
         mSummary = summary;
     }
 
-    public double getTemperature() {
-        return mTemperature;
+    public int getTemperature() {
+        return (int)Math.round(mTemperature);
     }
 
     public void setTemperature(double temperature) {
@@ -50,11 +51,36 @@ public class HourlyWeather {
         mIcon = icon;
     }
 
-    public String getTImezone() {
-        return mTImezone;
+    @Override
+    public int describeContents() {
+        return 0;//not used
     }
 
-    public void setTImezone(String TImezone) {
-        mTImezone = TImezone;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(mTime);
+        dest.writeString(mSummary);
+        dest.writeDouble(mTemperature);
+        dest.writeString(mIcon);
+    }
+
+    public static final Parcelable.Creator<HourlyWeather> CREATOR
+            = new Creator<HourlyWeather>() {
+        @Override
+        public HourlyWeather createFromParcel(Parcel source) {
+            return new HourlyWeather(source);
+        }
+
+        @Override
+        public HourlyWeather[] newArray(int size) {
+            return new HourlyWeather[size];
+        }
+    };
+
+    public HourlyWeather(Parcel in){
+        mTime=in.readLong();
+        mSummary=in.readString();
+        mTemperature=in.readDouble();
+        mIcon=in.readString();
     }
 }
